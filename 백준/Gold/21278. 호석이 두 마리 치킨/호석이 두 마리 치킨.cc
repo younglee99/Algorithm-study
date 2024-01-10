@@ -3,6 +3,7 @@
 #include <vector>
 #include <string>
 using namespace std;
+
 #define INF 1000000000;
 int dp[101][101] = { 0 };
 int n, m;
@@ -26,10 +27,9 @@ int main() {
         dp[a][b] = 1;
         dp[b][a] = 1;
     }
-
-    for (int i = 1; i <= n; i++) {
-        for (int j = 1; j <= n; j++) {
-            for (int k = 1; k <= n; k++) {
+    for (int k = 1; k <= n; k++) {
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= n; j++) {
                 dp[i][j] = min(dp[i][j], dp[i][k] + dp[k][j]);
             }
         }
